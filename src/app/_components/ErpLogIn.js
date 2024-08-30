@@ -1,14 +1,14 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import '../_components/css/ErpLogIn.css';
-const ErpLogIn = ()=>{
+
+const ErpLogIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
 
     async function handleLogIn() {
         try {
-            let result = await fetch("http://localhost:3000/api/auth", {
+            let result = await fetch("/api/auth", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,33 +29,36 @@ const ErpLogIn = ()=>{
     }
 
     return (
-        <>
-        <div className="login-container">
-            <h3>Login Page</h3>
-            <div className="input-wrapper">
-            <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    className="input-field"
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-            <input
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    className="input-field"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <div>
-            <button className="button" onClick={handleLogIn}>Login</button>
+        <div className="flex justify-center items-center bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-80 flex flex-col justify-center items-center">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800">Login Page</h3>
+                <div className="mb-4 w-full">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="mb-4 w-full">
+                    <input
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <button
+                    className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors"
+                    onClick={handleLogIn}
+                >
+                    Login
+                </button>
             </div>
         </div>
-        </>
-    )
-}
+    );
+};
 
 export default ErpLogIn;

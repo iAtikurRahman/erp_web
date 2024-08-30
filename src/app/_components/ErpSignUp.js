@@ -38,66 +38,74 @@ const ErpSignUp = () => {
     }
 
     return (
-        <>
-            <h2>Sign up page</h2>
-            <div className="input-wrapper">
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    className="input-field"
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+        <div className="flex flex-col items-center justify-center bg-gray-100 p-4">
+            <h2 className="text-2xl font-semibold mb-6">Sign Up Page</h2>
+            
+            <div className="w-full max-w-md space-y-4">
+                <div className="input-wrapper">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="input-wrapper">
+                    <input
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className="input-wrapper">
+                    <input
+                        type="password"
+                        placeholder="Confirm your password"
+                        value={repassword}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setRepassword(e.target.value)}
+                    />
+                </div>
+                <div className="input-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Restaurant name"
+                        value={name}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
+                <div className="input-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Full address"
+                        value={address}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setAddress(e.target.value)}
+                    />
+                </div>
+                <div className="input-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Mobile number"
+                        value={mobile}
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onChange={(e) => setMobile(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <button
+                        className="w-full p-3 mt-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-300"
+                        onClick={handleSignUp}
+                    >
+                        Signup
+                    </button>
+                </div>
             </div>
-            <div className="input-wrapper">
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    className="input-field"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-                <input
-                    type="password"
-                    placeholder="Confirm your password"
-                    value={repassword}
-                    className="input-field"
-                    onChange={(e) => setRepassword(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-                <input
-                    type="text"
-                    placeholder="Restaurant name"
-                    value={name}
-                    className="input-field"
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-                <input
-                    type="text"
-                    placeholder="Full address"
-                    value={address}
-                    className="input-field"
-                    onChange={(e) => setAddress(e.target.value)}
-                />
-            </div>
-            <div className="input-wrapper">
-                <input
-                    type="text"
-                    placeholder="Mobile number"
-                    value={mobile}
-                    className="input-field"
-                    onChange={(e) => setMobile(e.target.value)}
-                />
-            </div>
-            <div>
-                <button className="button" onClick={handleSignUp}>Signup</button>
-            </div>
-        </>
+        </div>
     );
 }
 
