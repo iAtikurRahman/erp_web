@@ -1,0 +1,13 @@
+/* footer.css */
+
+.footer_wrepper {
+    background-color: #2c3e50; /* Dark background for contrast */
+    padding: 15px 20px; /* Space around the text */
+    text-align: center; /* Center the text */
+    color: #ffffff; /* White text color */
+    font-size: 14px; /* Font size for readability */
+    position: fixed; /* Fixes the footer at the bottom */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
