@@ -26,7 +26,7 @@ const Dashboard = () => {
     return (
         <>
         <div className="dashboard-container">
-        <ErpHeader/>
+            <ErpHeader/>
             <h2>Dashboard</h2>
 
             <div className="dashboard-content">
@@ -44,8 +44,8 @@ const Dashboard = () => {
 
                 {/* Circle with Today's Data */}
                 <div className="today-data-circle">
-                    <div>Today's Cost: {todayCost}</div>
-                    <div>Today's Income: {todayIncome}</div>
+                    <div>Today&rsquo;s Cost: {todayCost}</div>
+                    <div>Today&rsquo;s Income: {todayIncome}</div>
                 </div>
             </div>
 
