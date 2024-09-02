@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
+import Link from 'next/link'; // Import the Link component
 import { useRouter } from 'next/navigation';
 import ErpHeader from '../_components/ErpHeader'; // Use Next.js router for navigation
 
@@ -44,7 +45,7 @@ const Dashboard = () => {
 
                     {/* Circle with Today's Data */}
                     <div className="flex-1 flex justify-center items-center">
-                        {/* Further increase circle size */}
+                        {/* Circle size increased */}
                         <div className="w-56 h-56 flex flex-col justify-center items-center rounded-full bg-white shadow-md" style={{ background: 'conic-gradient(#28a745 0% 74%, #dc3545 74% 100%)' }}>
                             <div className="text-white text-lg font-bold">Today’s Cost: {todayCost}</div>
                             <div className="text-white text-lg font-bold">Today’s Income: {todayIncome}</div>
@@ -54,10 +55,22 @@ const Dashboard = () => {
 
                 {/* Sections at the bottom */}
                 <div className="grid grid-cols-3 gap-6 mt-6">
-                    {['Selling', 'HR & Workers', 'Customer', 'Supplier', 'Stock', 'Purchase'].map((section, index) => (
-                        <div key={index} className="bg-white p-6 rounded-lg text-center shadow-md font-semibold text-gray-700 hover:transform hover:-translate-y-1 hover:shadow-lg transition duration-300">
-                            {section}
-                        </div>
+                    {[
+                        { label: 'Sale', link: '/module/sale' },
+                        { label: 'HR & Workers', link: '/module/administration' },
+                        { label: 'Customer', link: '/module/customer' },
+                        { label: 'Supplier', link: '/module/supplier' },
+                        { label: 'Stock', link: '/module/stock' },
+                        { label: 'Purchase', link: '/module/purchase' },
+                        { label: 'Product', link: '/module/product' },
+                        { label: 'Transportation', link: '/module/transportation' },
+                        { label: 'Account', link: '/module/account' },
+                    ].map((section, index) => (
+                        <Link href={section.link} key={index}>
+                            <div className="bg-white p-6 rounded-lg text-center shadow-md font-semibold text-gray-700 hover:transform hover:-translate-y-1 hover:shadow-lg transition duration-300 cursor-pointer">
+                                {section.label}
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

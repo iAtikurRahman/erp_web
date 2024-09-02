@@ -1,4 +1,3 @@
-// header.js
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -19,6 +18,7 @@ const ErpHeader = () => {
                 <img src="./asset/logo.jpg" alt="Logo" className="w-10 h-10 mr-2" /> {/* Replace with your logo URL */}
                 <span className="text-lg font-bold">ERP System</span>
             </div>
+            {/* Make the entire dropdown area trigger the hover effect */}
             <div
                 className="relative cursor-pointer"
                 onMouseEnter={() => setIsDropdownOpen(true)}
@@ -27,6 +27,7 @@ const ErpHeader = () => {
                 <span className="px-3 py-1 rounded transition-colors duration-300 hover:bg-white hover:bg-opacity-10">Admin</span>
                 {isDropdownOpen && (
                     <div className="absolute top-8 right-0 bg-white text-gray-800 border border-gray-200 rounded shadow-md overflow-hidden">
+                        {/* Include both the dropdown menu and the logout button in the hover area */}
                         <Link href="/my_profile/user" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
                             Profile
                         </Link>
