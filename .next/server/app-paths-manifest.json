@@ -1,14 +1,4 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/module/customer/page": "app/module/customer/page.js",
-  "/module/sale/page": "app/module/sale/page.js",
-  "/module/product/page": "app/module/product/page.js",
-  "/module/purchase/page": "app/module/purchase/page.js",
-  "/module/stock/page": "app/module/stock/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/module/administration/page": "app/module/administration/page.js",
-  "/module/transportation/page": "app/module/transportation/page.js",
-  "/module/supplier/page": "app/module/supplier/page.js",
-  "/module/account/page": "app/module/account/page.js"
+  "/module/transportation/page": "app/module/transportation/page.js"
 }
