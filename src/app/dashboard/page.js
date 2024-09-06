@@ -12,10 +12,27 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const Dashboard = () => {
     const router = useRouter();
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        const savedDarkMode = localStorage.getItem('isDarkMode');
-        return savedDarkMode === 'true';
-    });
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        // Load dark mode preference from localStorage in the browser only
+        const savedDarkMode = typeof window !== 'undefined' ? localStorage.getItem('isDarkMode') : null;
+        setIsDarkMode(savedDarkMode === 'true');
+
+        // Check authentication token
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+        if (token !== 'iamauserfromweb') {
+            alert('Access Denied. Invalid token.');
+            router.push('/');
+        }
+    }, [router]);
+
+    const handleDarkModeChange = (newDarkMode) => {
+        setIsDarkMode(newDarkMode);
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('isDarkMode', newDarkMode);
+        }
+    };
 
     // Data
     const totalRevenue = 45231.89;
@@ -42,19 +59,6 @@ const Dashboard = () => {
         { name: 'Sofia Davis', email: 'sofia.davis@email.com', amount: 39.0, avatar: '/asset/pic4.jpg' },
     ];
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token !== 'iamauserfrompc') {
-            alert('Access Denied. Invalid token.');
-            router.push('/login');
-        }
-    }, [router]);
-
-    const handleDarkModeChange = (newDarkMode) => {
-        setIsDarkMode(newDarkMode);
-        localStorage.setItem('isDarkMode', newDarkMode);
-    };
-
     return (
         <>
             <ErpHeader onDarkModeChange={handleDarkModeChange} />
@@ -64,7 +68,7 @@ const Dashboard = () => {
             />
 
             {/* Main content starts below the header */}
-            <div className={`flex flex-col items-center min-h-screen transition-all duration-300 mt-[80px] ${isSidebarCollapsed ? 'ml-0' : 'ml-[220px]'}`}>
+            <div className={`flex flex-col items-center min-h-screen transition-all duration-300 mt-[120px] ${isSidebarCollapsed ? 'ml-0' : 'ml-[220px]'}`}>
                 <div className={`w-full max-w-7xl p-8 rounded-lg shadow-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100'}`}>
                 <h2 className="text-center text-2xl font-semibold mb-6">Dashboard</h2>
                     
@@ -95,7 +99,7 @@ const Dashboard = () => {
                     {/* Flex Container for Parallel Sections */}
                     <div className="flex gap-8">
                         {/* Overview Graph */}
-                        <div className="w-1/2 mb-8">
+                        <div className="w-1/2 mb-8 h-[100px]" >
                             <h3 className="text-lg font-medium mb-4">Overview</h3>
                             <div className="bg-white p-4 rounded-lg shadow-md">
                                 <Bar data={chartData} />

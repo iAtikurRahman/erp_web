@@ -36,7 +36,7 @@ const ErpHeader = ({ onDarkModeChange }) => {
     return (
         <header className={`fixed top-0 left-0 w-full flex justify-between items-center p-4 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'} shadow-md z-50`}>
             <div className="flex items-center">
-                <img src="./asset/logo.jpg" alt="Logo" className="w-10 h-10 mr-2" />
+            <img src="/asset/logo.jpg" alt="logo.jpg" className="w-10 h-10 mr-2" />
                 <span className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ERP System</span>
             </div>
             <div className="flex items-center space-x-4">
