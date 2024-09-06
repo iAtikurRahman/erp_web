@@ -1,4 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/module/transportation/page": "app/module/transportation/page.js"
+  "/dashboard/page": "app/dashboard/page.js",
+  "/module/purchase/page": "app/module/purchase/page.js",
+  "/module/product/page": "app/module/product/page.js",
+  "/module/transportation/page": "app/module/transportation/page.js",
+  "/module/account/page": "app/module/account/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
