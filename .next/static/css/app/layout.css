@@ -702,20 +702,11 @@ video {
 .h-10 {
   height: 2.5rem;
 }
-.h-\[calc\(100vh-72px\)\] {
-  height: calc(100vh - 72px);
-}
-.h-\[20px\] {
-  height: 20px;
-}
-.h-\[60px\] {
-  height: 60px;
-}
-.h-\[80px\] {
-  height: 80px;
-}
 .h-\[100px\] {
   height: 100px;
+}
+.h-\[calc\(100vh-72px\)\] {
+  height: calc(100vh - 72px);
 }
 .min-h-screen {
   min-height: 100vh;

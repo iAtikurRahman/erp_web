@@ -21,7 +21,7 @@ const Dashboard = () => {
 
         // Check authentication token
         const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-        if (token !== 'iamauserfromweb') {
+        if (token !== 'iamauserfrompc') {
             alert('Access Denied. Invalid token.');
             router.push('/');
         }
