@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import db from '../../lib/db_connec';
 
 export async function POST(req) {
     try {
@@ -31,3 +32,26 @@ export async function POST(req) {
         });
     }
 }
+
+export async function GET(req) {
+    try {
+      // Execute the query using await to handle the promise
+      const [result] = await db.execute('SELECT * FROM tasks LIMIT 10');
+  
+      return NextResponse.json({
+        status: 200,
+        success: true,
+        data: result,
+        message: "Data retrieved successfully",
+      });
+  
+    } catch (error) {
+      // Handle unexpected errors
+      return NextResponse.json({
+        status: 500,
+        success: false,
+        message: "An error occurred during the data retrieval process.",
+        error: error.message,
+      });
+    }
+  }
